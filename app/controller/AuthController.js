@@ -249,7 +249,7 @@ class AuthController {
                 return res.status(404).json({ message: "User not found" });
             }
             const token = jwt.sign({ id: user._id }, process.env.JWT_SECRECT, { expiresIn: "1h" });
-            const link = `${process.env.LOCAL_PORT_URL}/reset-password/${token}`;
+            const link = `http://localhost:5173/reset-password/${token}`;
             const mailOptions = {
                 to: email,
                 subject: "Password Reset",
